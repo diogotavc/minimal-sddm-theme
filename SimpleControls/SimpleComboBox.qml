@@ -107,6 +107,7 @@ FocusScope {
             clip: true
             smooth: true
             fillMode: Image.PreserveAspectFit
+            source: "arrow-down.png"
         }
     }
 

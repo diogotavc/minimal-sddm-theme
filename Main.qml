@@ -14,22 +14,17 @@ Rectangle {
     
     Connections {
         target: sddm
-        onLoginSucceeded: {}
-        onLoginFailed: {
+        function onLoginSucceeded() {}
+        function onLoginFailed() {
             pw_entry.text = ""
             pw_entry.focus = true
         }
     }
-    
-    Background {
+
+    Image {
+        id: mainFrameBackground
         anchors.fill: parent
         source: config.background
-        fillMode: Image.PreserveAspectCrop
-        onStatusChanged: {
-            if (status == Image.Error && source != config.defaultBackground) {
-                source = config.defaultBackground
-            }
-        }
     }
     
     Rectangle {
@@ -137,7 +132,7 @@ Rectangle {
             dropDownColor: Qt.rgba(0, 0, 0, 0.2)
             borderColor: "transparent"
             textColor: "white"
-            arrowIcon: "images/arrow-down.png"
+            arrowIcon: "arrow-down.png"
             arrowColor: "transparent"
             model: sessionModel
             index: sessionModel.lastIndex
